@@ -1,10 +1,10 @@
-import { Router, Request, Response } from "express";
-import UserDto from "../models/dtos/user.dto";
+import { Express } from "express";
+import hrRouter from "./hr.route";
+import marketingRouter from "./marketing.route";
+import financeRouter from "./finance.route";
 
-const router: Router = Router()
-
-router.get("/foo", function(req: Request, res: Response) {
-    res.send(new UserDto(15, "Phuc Vinh"))
-})
-
-export default router;
+export default function route(app: Express) {
+    app.use('/hr', hrRouter)
+    app.use('/marketing', marketingRouter)
+    app.use('/finance', financeRouter)
+}

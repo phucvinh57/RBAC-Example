@@ -1,12 +1,13 @@
 import express, { Express } from "express";
-import router from "./routes";
+import route from "./routes";
 
 const PORT = 4000;
 
 const app: Express = express();
 
 app.use(express.json())
-app.use('/', router)
+
+route(app)
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
