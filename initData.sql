@@ -46,6 +46,7 @@ VALUES
     (1, 1, 8);
 
 SELECT
+    user.id AS user_id,
     user.name AS user_name,
     role_name,
     resource_name,
