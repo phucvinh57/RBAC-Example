@@ -21,8 +21,8 @@ const hrRoleChecker = {
         }
 
         if(!userPermission.some(permission => 
-            permission.action === 'access'
-            && permission.resource?.toLowerCase() === 'lever'
+            permission.action?.toLowerCase() == 'access'
+            && permission.resource?.toLowerCase() == 'lever'
         )) {
             res.status(FORBIDDEN_CODE).json(new Exception("Permission denied"))
             return
@@ -40,8 +40,8 @@ const hrRoleChecker = {
         const userPermission = getPermission(req);
 
         if(!userPermission.some(permission => 
-            permission.action === 'access'
-            && permission.resource?.toLowerCase() === 'bamboohr'
+            permission.action?.toLowerCase() == 'sudo'
+            && permission.resource?.toLowerCase() == 'bamboohr'
         )) {
             res.status(FORBIDDEN_CODE).json(new Exception("Permission denied"))
             return
